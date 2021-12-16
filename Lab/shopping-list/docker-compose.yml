@@ -1,0 +1,10 @@
+version: '3'
+services:
+  react-app:
+    build: .
+    ports:
+      - '${PORT_OUT}:3000'
+    volumes:
+      - ./src:/app/src
+    env_file:
+      - ./.env
