@@ -9,6 +9,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
 
   const addOneItem = (e) => {
     e.preventDefault();
+    setQuantityOfItem(1 + quantityOfItem);
     let xhr = new XMLHttpRequest();
     let URL = process.env.REACT_APP_URL + 'items/' + id;
     let object = JSON.stringify({
@@ -33,6 +34,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
 
   const deleteOneItem = (e) => {
     e.preventDefault();
+    setQuantityOfItem(quantityOfItem - 1);
     let xhr = new XMLHttpRequest();
     let URL = process.env.REACT_APP_URL + 'items/' + id;
     let object = JSON.stringify({
