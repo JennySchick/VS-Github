@@ -1,6 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Button, TextField, Fab } from 'ui-neumorphism';
+import { Button, TextField, Fab, Card, IconButton, CardContent,CardHeader, H5, CardAction, CardMedia } from 'ui-neumorphism';
+
+
 import 'ui-neumorphism/dist/index.css';
 import { useSnackbar } from 'notistack';
 import Item from './item.js';
@@ -58,6 +60,7 @@ function App() {
     });
   };
 
+
   return (
     <>
       <div
@@ -72,15 +75,71 @@ function App() {
           background: '#edf2f4',
         }}
       >
-        <img
-          style={{
+        <Card
+        style={{
             width: 150 + 'px',
             height: 150 + 'px',
             borderRadius: 75 + 'px',
-            top: 90 + 'px',
+            top: 100 + 'px',
           }}
-          src={require('./cart.png')}
-        />
+          >
+            <CardMedia
+            rounded={true}
+            src={require('./cart.png')}
+            style={{
+            width: 100 + 'px',
+            height: 100 + 'px',
+            borderRadius: 75 + 'px',
+          }}
+            />
+        </Card>
+
+        <Card 
+      elevation={1} 
+      style={{ display: 'flex',
+             width: 50 + 'vw',
+             height: 60 + 'vh',
+             background: '#edf2f4',
+             padding: '1%',
+             margin: 10 + 'px',
+              flexDirection: 'column',
+             alignItems: 'center',
+              justifyContent: 'center'}}>
+        <CardHeader
+         title={<H5>SHOPPING LIST</H5>}
+          style={{
+             background: '#edf2f4'}}
+            />
+        <CardContent  
+              style={{
+              width: '100%',
+              height: '30%',
+              display: 'flex',
+              background: '#edf2f4',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'row',
+            }}>
+        <TextField
+            width={500}
+             style={{ 
+             background: '#edf2f4'}}
+             label="Add Item ..."
+             className="my-3"
+             onChange={({ target: { value } }) => setNameOfNewItem(value)}
+        ></TextField>
+        <IconButton rounded 
+        text={false} 
+        style={{ 
+             display: 'flex',
+             height: '30%',
+             background: '#edf2f4',
+             size: 'medium',
+             fontSize: '50px',
+             fontWeight: 'bold'}}>+</IconButton>
+            </CardContent>
+       
+        </Card>
         <div
           style={{
             display: 'flex',
