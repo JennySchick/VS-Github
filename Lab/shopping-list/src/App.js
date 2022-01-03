@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Button, TextField, Fab, Card, IconButton, CardContent,CardHeader, H5, CardAction, CardMedia } from 'ui-neumorphism';
+import { Button, TextField, Fab, Card, IconButton, CardContent,CardHeader, H5, H6, CardMedia } from 'ui-neumorphism';
 
 
 import 'ui-neumorphism/dist/index.css';
@@ -123,95 +123,50 @@ function App() {
         <TextField
             width={500}
              style={{ 
-             background: '#edf2f4'}}
+             background: '#edf2f4',
+            justifyContent: 'center'}}
              label="Add Item ..."
              className="my-3"
              onChange={({ target: { value } }) => setNameOfNewItem(value)}
         ></TextField>
         <IconButton rounded 
         text={false} 
+        size='medium'
         style={{ 
-             display: 'flex',
+             top: '10px',
              height: '30%',
-             background: '#edf2f4',
-             size: 'medium',
-             fontSize: '50px',
-             fontWeight: 'bold'}}>+</IconButton>
+             background: '#edf2f4'}}>+</IconButton>
             </CardContent>
-       
-        </Card>
-        <div
-          style={{
-            display: 'flex',
-            width: 50 + 'vw',
-            height: 60 + 'vh',
-            padding: '1%',
-            margin: 10 + 'px',
-            border: 2 + 'px',
-            borderColor: 'white',
-            borderStyle: 'solid',
-            flexDirection: 'column',
-            borderRadius: 5 + 'px',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            style={{
-              width: '100%',
-              height: '20%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'row',
-            }}
-          >
-            <TextField
-              label="Add Item Name"
-              className="my-3"
-              onChange={({ target: { value } }) => setNameOfNewItem(value)}
-            ></TextField>
-            <Fab onClick={handleAddItem}>
-              <span style={{ fontSize: '30px' }}>&#43;</span>
-            </Fab>
-          </div>
-          <div
-            style={{
-              width: '100%',
+           <CardContent  
+              style={{
+              width: '66%',
               height: '80%',
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: 'left',
+              justifyContent: 'left',
               flexDirection: 'column',
-            }}
-          >
-            {items.map((item, i) => (
+              background: '#edf2f4'
+            }}>
+              {items.map((item, i) => (
               <Item item={item}></Item>
             ))}
-          </div>
-        </div>
-        <div
-          style={{
+            </CardContent>
+        </Card>
+        <Card style={{
             display: 'flex',
             flexDirection: 'row',
-            padding: '1%',
-            margin: 10 + 'px',
-            border: 2 + 'px',
+            margin: 5 + 'px',
             width: 50 + 'vw',
-            borderColor: 'white',
-            borderStyle: 'solid',
-            borderRadius: 5 + 'px',
             justifyContent: 'flex-end',
+            background: '#edf2f4',
           }}
         >
-          <h3
-            style={{
-              paddingRight: 5 + 'px',
-            }}
-          >
-            Amount: {items.length}
-          </h3>
-        </div>
+         <CardHeader
+         title={<H6> AMOUNT: {items.length}</H6>}
+          style={{
+             background: '#edf2f4'}}
+            />
+        </Card>
       </div>
     </>
   );
