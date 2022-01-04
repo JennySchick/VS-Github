@@ -85,11 +85,11 @@ function App() {
           >
             <CardMedia
             rounded={true}
-            src={require('./cart.png')}
+            src={require('./shopping-cart.png')}
             style={{
-            width: 100 + 'px',
-            height: 100 + 'px',
-            borderRadius: 75 + 'px',
+            width: 150 + 'px',
+            height: 150 + 'px',
+            borderRadius: 0 + 'px',
           }}
             />
         </Card>
@@ -123,6 +123,7 @@ function App() {
         <TextField
             width={500}
              style={{ 
+              width: '100%',
              background: '#edf2f4',
             justifyContent: 'center'}}
              label="Add Item ..."
@@ -139,7 +140,7 @@ function App() {
             </CardContent>
            <CardContent  
               style={{
-              width: '66%',
+              width: '100%',
               height: '80%',
               display: 'flex',
               alignItems: 'left',

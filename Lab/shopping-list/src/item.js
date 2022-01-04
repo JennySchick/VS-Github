@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Checkbox, TextField, Button } from 'ui-neumorphism';
+import { Checkbox, TextField, Button, IconButton } from 'ui-neumorphism';
 import { useSnackbar } from 'notistack';
 
 const Item = ({ item: { id, name, quantity, created, complete } }) => {
@@ -94,8 +94,11 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         color="var(--primary)"
         checked={isItemCompleted}
         onClick={handleCheckBox}
+        label={name}
+        className="my-3"
+        readonly
       />
-      <TextField label={name} className="my-3" readonly></TextField>
+      {/* <TextField dense label={name} className="my-3" readonly></TextField> */}
       <div
         style={{
           display: 'flex',
@@ -104,22 +107,32 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
           marginRight: '25px',
         }}
       >
-        <Button color="var(--primary)" onClick={deleteOneItem}>
-          -
-        </Button>
+        <IconButton 
+        text={false} 
+        size='small' 
+        color="var(--primary)" 
+        onClick={deleteOneItem}>
+        -</IconButton>
         <TextField
           label={quantityOfItem}
-          width="60"
+          width="50"
           className="my-3"
-          type="number"
+          dense
         ></TextField>
-        <Button color="var(--primary)" onClick={addOneItem}>
-          +
-        </Button>
+         <IconButton 
+        text={false} 
+        size='small' 
+        color="var(--primary)" 
+        onClick={addOneItem}>
+        +</IconButton>
       </div>
-      <Button color="red" onClick={deleteWholeItem}>
-        Delete
-      </Button>
+      <IconButton 
+        text={false} 
+        size='small' 
+        color='var(--error)'
+        onClick={deleteWholeItem}>
+        </IconButton>
+      
     </div>
   );
 };
