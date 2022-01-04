@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Checkbox, TextField, Button, IconButton } from 'ui-neumorphism';
 import { useSnackbar } from 'notistack';
+import Icon from '@mdi/react';
+import { mdiTrashCanOutline, mdiMenuUpOutline, mdiMenuDownOutline } from '@mdi/js';
 
 const Item = ({ item: { id, name, quantity, created, complete } }) => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -112,7 +114,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         size='small' 
         color="var(--primary)" 
         onClick={deleteOneItem}>
-        -</IconButton>
+        <Icon path={mdiMenuDownOutline} size={1} /></IconButton>
         <TextField
           label={quantityOfItem}
           width="50"
@@ -124,13 +126,14 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         size='small' 
         color="var(--primary)" 
         onClick={addOneItem}>
-        +</IconButton>
+        <Icon path={mdiMenuUpOutline} size={1} /></IconButton>
       </div>
       <IconButton 
         text={false} 
         size='small' 
         color='var(--error)'
         onClick={deleteWholeItem}>
+        <Icon path={mdiTrashCanOutline} size={1} />
         </IconButton>
       
     </div>

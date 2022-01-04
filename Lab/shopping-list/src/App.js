@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, Fab, Card, IconButton, CardContent,CardHeader, H5, H6, CardMedia } from 'ui-neumorphism';
-
+import Icon from '@mdi/react';
+import { mdiPlus } from '@mdi/js';
 
 import 'ui-neumorphism/dist/index.css';
 import { useSnackbar } from 'notistack';
@@ -136,7 +137,8 @@ function App() {
         style={{ 
              top: '10px',
              height: '30%',
-             background: '#edf2f4'}}>+</IconButton>
+             background: '#edf2f4'}}> <Icon path={mdiPlus} size={1} />
+            </IconButton>
             </CardContent>
            <CardContent  
               style={{
