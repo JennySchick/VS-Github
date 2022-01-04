@@ -83,17 +83,19 @@ function App() {
             height: 150 + 'px',
             borderRadius: 75 + 'px',
             top: 100 + 'px',
+            background: '#edf2f4',
           }}
           >
-            <CardMedia
-            rounded={true}
-            src={require('./shopping-cart.png')}
-            style={{
+            <img
+          style={{
             width: 150 + 'px',
             height: 150 + 'px',
-            borderRadius: 0 + 'px',
+            borderRadius: 75 + 'px',
+            top: 90 + 'px',
           }}
-            />
+          src={require('./cart.png')}
+        />
+         
         </Card>
 
         <Card 
