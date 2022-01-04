@@ -105,8 +105,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginRight: '25px',
+          justifyContent: 'center',
         }}
       >
         <IconButton 
@@ -127,14 +126,18 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         color="var(--primary)" 
         onClick={addOneItem}>
         <Icon path={mdiMenuUpOutline} size={1} /></IconButton>
-      </div>
-      <IconButton 
+        <IconButton 
+        style={{
+         marginLeft: '10px',
+        }}
         text={false} 
         size='small' 
         color='var(--error)'
         onClick={deleteWholeItem}>
         <Icon path={mdiTrashCanOutline} size={1} />
         </IconButton>
+      </div>
+      
       
     </div>
   );

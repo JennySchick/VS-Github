@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, Fab, Card, IconButton, CardContent,CardHeader, H5, H6, CardMedia } from 'ui-neumorphism';
 import Icon from '@mdi/react';
-import { mdiPlus } from '@mdi/js';
+import { mdiPlus, mdiCartVariant  } from '@mdi/js';
 
 import 'ui-neumorphism/dist/index.css';
 import { useSnackbar } from 'notistack';
@@ -12,8 +12,9 @@ function App() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   var [nameOfNewItem, setNameOfNewItem] = useState('ErrorItem');
   var items = [
-    { id: '1', name: 'TestItem', quantity: 4, created: 'TK', complete: false },
-    { id: '2', name: 'TestItem', quantity: 3, created: 'TK', complete: false },
+    { id: '1', name: 'Banane', quantity: 4, created: 'TK', complete: false },
+    { id: '2', name: 'Apfel', quantity: 3, created: 'TK', complete: false },
+    { id: '3', name: 'Toast', quantity: 1, created: 'TK', complete: false },
   ];
 
   useEffect(() => {
@@ -103,9 +104,9 @@ function App() {
              background: '#edf2f4',
              padding: '1%',
              margin: 10 + 'px',
-              flexDirection: 'column',
+             flexDirection: 'column',
              alignItems: 'center',
-              justifyContent: 'center'}}>
+            justifyContent: 'center'}}>
         <CardHeader
          title={<H5>SHOPPING LIST</H5>}
           style={{
@@ -114,7 +115,6 @@ function App() {
         <CardContent  
               style={{
               width: '100%',
-              height: '30%',
               display: 'flex',
               background: '#edf2f4',
               alignItems: 'center',
@@ -122,33 +122,34 @@ function App() {
               flexDirection: 'row',
             }}>
         <TextField
-            width={500}
+            width={300}
              style={{ 
-              width: '100%',
-             background: '#edf2f4',
-            justifyContent: 'center'}}
+              background: '#edf2f4',
+              justifyContent: 'center',
+              marginBottom: '-20px'}}
              label="Add Item ..."
              className="my-3"
              onChange={({ target: { value } }) => setNameOfNewItem(value)}
         ></TextField>
         <IconButton rounded 
         text={false} 
-        size='medium'
+        size='small'
         style={{ 
-             top: '10px',
-             height: '30%',
-             background: '#edf2f4'}}> <Icon path={mdiPlus} size={1} />
+            background: '#edf2f4',
+            }}>
+            <Icon path={mdiPlus} size={1} />
             </IconButton>
             </CardContent>
            <CardContent  
               style={{
-              width: '100%',
+              width: '80%',
               height: '80%',
               display: 'flex',
               alignItems: 'left',
               justifyContent: 'left',
               flexDirection: 'column',
-              background: '#edf2f4'
+              background: '#edf2f4',
+            
             }}>
               {items.map((item, i) => (
               <Item item={item}></Item>
