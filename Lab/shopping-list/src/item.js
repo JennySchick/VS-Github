@@ -13,7 +13,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     e.preventDefault();
     setQuantityOfItem(1 + quantityOfItem);
     let xhr = new XMLHttpRequest();
-    let URL = process.env.REACT_APP_URL + 'items/' + id;
+    let URL = 'http://localhost:8000' + '/items/' + id + '/';
     let object = JSON.stringify({
       id: id,
       name: name,
@@ -38,7 +38,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     e.preventDefault();
     setQuantityOfItem(quantityOfItem - 1);
     let xhr = new XMLHttpRequest();
-    let URL = process.env.REACT_APP_URL + 'items/' + id;
+    let URL = process.env.REACT_APP_URL + 'items/' + id + '/';
     let object = JSON.stringify({
       id: id,
       name: name,
@@ -94,7 +94,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     >
       <Checkbox
         color="var(--primary)"
-        checked={isItemCompleted}
+        checked={true}
         onClick={handleCheckBox}
         label={name}
         className="my-3"
@@ -113,7 +113,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         size='small' 
         color="var(--primary)" 
         onClick={deleteOneItem}>
-        <Icon path={mdiMenuDownOutline} size={1} /></IconButton>
+        <Icon path={mdiMenuDownOutline} size={0.8} /></IconButton>
         <TextField
           label={quantityOfItem}
           width="50"
@@ -125,7 +125,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         size='small' 
         color="var(--primary)" 
         onClick={addOneItem}>
-        <Icon path={mdiMenuUpOutline} size={1} /></IconButton>
+        <Icon path={mdiMenuUpOutline} size={0.8} /></IconButton>
         <IconButton 
         style={{
          marginLeft: '10px',
@@ -134,7 +134,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         size='small' 
         color='var(--error)'
         onClick={deleteWholeItem}>
-        <Icon path={mdiTrashCanOutline} size={1} />
+        <Icon path={mdiTrashCanOutline} size={0.8} />
         </IconButton>
       </div>
       
