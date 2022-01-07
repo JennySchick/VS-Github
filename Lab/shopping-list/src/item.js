@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Checkbox, TextField, Button, IconButton } from 'ui-neumorphism';
+import { Checkbox, TextField, IconButton, Body1, mdiCheckBold  } from 'ui-neumorphism';
 import { useSnackbar } from 'notistack';
 import Icon from '@mdi/react';
 import { mdiTrashCanOutline, mdiMenuUpOutline, mdiMenuDownOutline } from '@mdi/js';
@@ -38,7 +38,8 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     e.preventDefault();
     setQuantityOfItem(quantityOfItem - 1);
     let xhr = new XMLHttpRequest();
-    let URL = process.env.REACT_APP_URL + 'items/' + id + '/';
+    let URL = process.env.REACT_APP_URL + 'items/' + id + 
+    '/';
     let object = JSON.stringify({
       id: id,
       name: name,
@@ -87,20 +88,20 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
   return (
     <div
       style={{
+        marginLeft: '10px',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
       }}
     >
-      <Checkbox
-        color="var(--primary)"
-        checked={true}
+       <Checkbox
+        color="none"
+        checked={false}
         onClick={handleCheckBox}
         label={name}
         className="my-3"
         readonly
       />
-      {/* <TextField dense label={name} className="my-3" readonly></TextField> */}
       <div
         style={{
           display: 'flex',

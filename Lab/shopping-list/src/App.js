@@ -152,11 +152,12 @@ function App() {
               justifyContent: 'left',
               flexDirection: 'column',
               background: '#edf2f4',
-            
             }}>
+              
               {items.map((item, i) => (
               <Item item={item}></Item>
             ))}
+            
             </CardContent>
         </Card>
         <Card style={{
