@@ -15,13 +15,13 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     e.preventDefault();
     setQuantityOfItem(1 + quantityOfItem);
     let xhr = new XMLHttpRequest();
-    let URL = 'http://localhost:8000' + '/items/' + id + '/';
+    let URL = process.env.REACT_APP_URL  + '/items/' + id + '/';
     let object = JSON.stringify({
       id: id,
       name: name,
       quantity: quantityOfItem,
       created: created,
-      complese: isItemCompleted,
+      complete: isItemCompleted,
     });
     xhr.open('PUT', URL, true);
     xhr.responseType = 'json';
@@ -46,8 +46,9 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
       name: name,
       quantity: quantityOfItem,
       created: created,
-      complese: isItemCompleted,
+      complete: isItemCompleted,
     });
+    console.log(object);
     xhr.open('PUT', URL, true);
     xhr.responseType = 'json';
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');

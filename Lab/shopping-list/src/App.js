@@ -27,7 +27,6 @@ function App() {
     xhr.onload = function () {
       if (xhr.status == 200) {
         setItems(xhr.response);
-        console.log(items);
        // enqueueSnackbar('Fetched Items from Database.', {
        // variant: 'success',
        //  });
