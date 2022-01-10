@@ -10,7 +10,7 @@ import Item from './item.js';
 
 function App() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-  var [nameOfNewItem, setNameOfNewItem] = useState('ErrorItem');
+  var [nameOfNewItem, setNameOfNewItem] = useState('');
   var [items,setItems] = useState([
    { id: '1', name: 'Banane', quantity: 4, created: 'TK', complete: false },
     { id: '2', name: 'Apfel', quantity: 3, created: 'TK', complete: false },
@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     let xhr = new XMLHttpRequest();
-    let URL = 'http://localhost:8000' + '/items';
+    let URL = process.env.REACT_APP_URL + '/items';
     xhr.open('GET', URL, true);
     xhr.responseType = 'json';
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
@@ -44,7 +44,7 @@ function App() {
       name: nameOfNewItem,
       quantity: 1,
       created: timeStamp.toISOString(),
-      complese: false,
+      complete: false,
     });
     xhr.open('POST', URL, true);
     xhr.responseType = 'json';
