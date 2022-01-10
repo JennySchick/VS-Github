@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Checkbox, TextField, IconButton, Body1, mdiCheckBold  } from 'ui-neumorphism';
+import { TextField, IconButton} from 'ui-neumorphism';
 import { useSnackbar } from 'notistack';
 import Icon from '@mdi/react';
 import { mdiTrashCanOutline, mdiMenuUpOutline, mdiMenuDownOutline } from '@mdi/js';
+import { Checkbox } from '@mui/material';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const Item = ({ item: { id, name, quantity, created, complete } }) => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -38,8 +40,7 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     e.preventDefault();
     setQuantityOfItem(quantityOfItem - 1);
     let xhr = new XMLHttpRequest();
-    let URL = process.env.REACT_APP_URL + 'items/' + id + 
-    '/';
+    let URL = process.env.REACT_APP_URL + 'items/' + id + '/';
     let object = JSON.stringify({
       id: id,
       name: name,
@@ -77,13 +78,13 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     };
   };
 
-  const handleCheckBox = (e) => {
+/*const handleCheckBox = (e) => {
     e.preventDefault();
     setIsItemCompleted(!isItemCompleted);
     enqueueSnackbar(isItemCompleted.toString(), {
       variant: 'error',
     });
-  };
+  };*/
 
   return (
     <div
@@ -93,15 +94,19 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
         flexDirection: 'row',
         justifyContent: 'space-between',
       }}
-    >
-       <Checkbox
+    ><FormControlLabel control={<Checkbox/>}
+     label={name}
+     className="my-3"
+     readOnly
+      />
+       {/*<Checkbox
         color="none"
         checked={false}
         onClick={handleCheckBox}
         label={name}
         className="my-3"
         readonly
-      />
+       />*/}
       <div
         style={{
           display: 'flex',
