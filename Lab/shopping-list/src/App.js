@@ -1,9 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Button, TextField, Fab, Card, IconButton, CardContent,CardHeader, H5, H6, CardMedia } from 'ui-neumorphism';
+import { TextField, Card, IconButton, CardContent,CardHeader, H5, H6 } from 'ui-neumorphism';
 import Icon from '@mdi/react';
-import { mdiPlus, mdiCartVariant  } from '@mdi/js';
-
+import { mdiPlus } from '@mdi/js';
 import 'ui-neumorphism/dist/index.css';
 import { useSnackbar } from 'notistack';
 import Item from './item.js';
@@ -11,6 +10,10 @@ import Item from './item.js';
 function App() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   var [nameOfNewItem, setNameOfNewItem] = useState('');
+  /*var items = [
+    { id: '1', name: 'TestItem', quantity: 4, created: 'TK', complete: false },
+    { id: '2', name: 'TestItem', quantity: 3, created: 'TK', complete: false },
+  ];*/
   var [items,setItems] = useState([
    { id: '1', name: 'Banane', quantity: 4, created: 'TK', complete: false },
     { id: '2', name: 'Apfel', quantity: 3, created: 'TK', complete: false },
@@ -19,17 +22,17 @@ function App() {
 
   useEffect(() => {
     let xhr = new XMLHttpRequest();
-    let URL = process.env.REACT_APP_URL + '/items';
+    let URL = 'http://localhost:8000' + '/items';
     xhr.open('GET', URL, true);
     xhr.responseType = 'json';
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.send();
     xhr.onload = function () {
       if (xhr.status == 200) {
-        setItems(xhr.response);
-       // enqueueSnackbar('Fetched Items from Database.', {
-       // variant: 'success',
-       //  });
+       setItems(xhr.response);
+       //enqueueSnackbar('Fetched Items from Database.', {
+       //variant: 'success',
+       //});
       }
     };
   });
@@ -152,11 +155,9 @@ function App() {
               flexDirection: 'column',
               background: '#edf2f4',
             }}>
-              
               {items.map((item, i) => (
               <Item item={item}></Item>
             ))}
-            
             </CardContent>
         </Card>
         <Card style={{

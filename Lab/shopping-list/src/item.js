@@ -79,13 +79,13 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     };
   };
 
-/*const handleCheckBox = (e) => {
+const handleCheckBox = (e) => {
     e.preventDefault();
     setIsItemCompleted(!isItemCompleted);
     enqueueSnackbar(isItemCompleted.toString(), {
       variant: 'error',
     });
-  };*/
+  };
 
   return (
     <div
@@ -98,16 +98,9 @@ const Item = ({ item: { id, name, quantity, created, complete } }) => {
     ><FormControlLabel control={<Checkbox/>}
      label={name}
      className="my-3"
+     onClick={handleCheckBox}
      readOnly
       />
-       {/*<Checkbox
-        color="none"
-        checked={false}
-        onClick={handleCheckBox}
-        label={name}
-        className="my-3"
-        readonly
-       />*/}
       <div
         style={{
           display: 'flex',
